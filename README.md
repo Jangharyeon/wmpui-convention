@@ -1,1 +1,1 @@
-http://jangharyun.github.io/wmpui/#/coding-guide
+http://jangharyun.github.io/wmpui-convention/#/coding-guide
