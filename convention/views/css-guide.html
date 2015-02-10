@@ -1,0 +1,564 @@
+<div id="cHeader" class="c-header bg-c-header">
+	<div class="c-header-inner">
+		<h2 class="tit">CSS Guide</h2>
+		<p class="txt">CSS(Cascading Style Sheets)코드의 기본 작성 가이드입니다.</p>
+	</div>
+</div>
+<div id="container">
+	<article id="content" role="main">
+
+		<div ng-include src=" 'convention/views/common/page-zoom.html' "></div>
+		<!-- 인코딩 -->
+		<section class="section-docs">
+			<h1 id="encoding" class="tit-docs">인코딩</h1>
+			<p class="txt-desc">폰트 이름이 영문이 아닐 때 이를 부라우저에서 바르게 표현하고, HTML에서 불러온 스타일을 제대로 렌더링하려면 반드시 CSS인코딩을 선언해야 한다.</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					@charset "UTF-8";</pre>
+			</div>
+		</section>
+		<!-- //인코딩 -->
+		<!-- 기본 규칙 -->
+		<section class="section-docs">
+			<h1 id="css-d-rule" class="tit-docs">기본 규칙</h1>
+			<h2 id="rule-small-letter">영문 소문자 사용</h2>
+			<p class="txt-desc">모든 속성은 영문 소문자로만 작성한다.</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class {display:block;overflow:hidden;float:left;}</pre>
+			</div>
+			<h2 id="rule-quotation-marks">따옴표</h2>
+			<p class="txt-desc">
+				공백이 포함된 폰트명, 한글 폰트명, 문자열 데이터 삽입, filter속성에 작은따옴표(&lsquo;&rsquo;)사용<br>
+				(background url에는 따옴표를 사용하지 않는다.)<br>
+				단, 인코딩 선언시는 큰따옴표(&ldquo;&rdquo;)사용
+			</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					@charset "utf-8";
+					font-family:'돋움';
+					content:'example';
+					background:url(/convention/images/img.png) no-repeat;</pre>
+			</div>
+		</section>
+		<!-- //기본 규칙 -->
+		<!-- 공통스타일 -->
+		<section class="section-docs">
+			<h1 id="css-style" class="tit-docs">공통스타일</h1>
+			<p class="txt-desc">기본적으로 사용되는 스타일 정의. 서비스의 디자인에 따라 변경 가능</p>
+			<h2 id="style-reset">reset style</h2>
+			<h3>pc</h3>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* reset */
+					body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button,figure{margin:0;padding:0}
+					fieldset,img{border:0 none}
+					img {vertical-align:top;}
+					dl,ul,ol,menu,li {list-style:none}
+					blockquote, q {quotes:none}
+					blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+					input,select,textarea,button {vertical-align:middle}
+					button {border:0 none;background-color:transparent;cursor:pointer}
+					label {cursor:pointer}
+					html {height:100%;}
+					body {min-height:100%;background:#fff}
+					body,th,td,input,select,textarea,button {font-family:'돋움',dotum,sans-serif;font-size:12px;color:#333;line-height:1.4;}
+					a {color:#333;text-decoration:none;}
+					a:active, a:hover {text-decoration:underline;}
+					address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+					article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display: block;}
+					table {width:100%;border-collapse:collapse;border-spacing:0;}/* table 초기화 */</pre>
+			</div>
+			<h3>mobile</h3>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* reset */
+					body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}
+					fieldset,img {border:0 none}
+					dl,ul,ol,menu,li {list-style:none}
+					blockquote, q {quotes:none}
+					blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+					input,select,textarea,button {font-size:100%;vertical-align:middle}
+					button {border:0 none;background-color:transparent;cursor:pointer}
+					table {border-collapse:collapse;border-spacing:0}
+					body {-webkit-text-size-adjust:none} /* 뷰표트 변환시 폰트크기 자동확대 방지 */
+					input[type='text'],input[type='password'],input[type='submit'],input[type='search'] {-webkit-appearance:none; border-radius:0}
+					input:checked[type='checkbox'] {background-color:#666; -webkit-appearance:checkbox}
+					button,input[type='button'],input[type='submit'],input[type='reset'],input[type='file'] {-webkit-appearance:button; border-radius:0}
+					input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none}
+					body {background:#fff}
+					body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', Helvetica, sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+					a {color:#333;text-decoration:none}
+					a:active, a:hover {text-decoration:none}
+					address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}</pre>
+			</div>
+			<h2 id="style-global">global class (선택적 사용)</h2>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* global */
+					.screen-out {display:block;overflow:hidden;position:absolute;left:-9999px;z-index:-1;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px;}
+					.screen-hide {font-size:0;line-height:0;visibility:hidden;}/* screen-out 클래스 사용할 수 없을 경우 */
+					.f-l {float:left;}
+					.f-r {float:right;}
+					.clearfix:after {display:block;clear:both;content:"";}
+					.show {display:block !important;}
+					.hide {display:none !important;}
+					.in-block {display:inline-block;}</pre>
+			</div>
+			<h2 id="style-common">common class (선택적 사용)</h2>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* images */
+					.ico-comm {background:url(url) no-repeat;}
+					.btn-comm, tit-comm, txt-comm {display:block;overflow:hidden;text-indent:-9999px;}
+					.btn-comm {background:url(url) no-repeat;}
+					.tit-comm {background:url(url) no-repeat;}
+					.txt-comm {background:url(url) no-repeat;}</pre>
+			</div>
+		</section>
+		<!-- //공통스타일 -->
+		<!-- 주석표기 -->
+		<section class="section-docs">
+			<h1 id="annotation" class="tit-docs">주석표기</h1>
+			<ul class="list-dot">
+				<li>주석 기호와 주석 사이에 공백 한칸이 있어야 한다.</li>
+				<li>종료 주석은 사용하지 않는다.</li>
+			</ul>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* css 주석 */</pre>
+			</div>
+		</section>
+		<!-- //주석표기 -->
+		<!-- 줄 바꿈 -->
+		<section class="section-docs">
+			<h1 id="breaks-indent" class="tit-docs">줄 바꿈, 들여쓰기</h1>
+			<p class="txt-desc">
+				속성, 속성값 사이 줄 바꿈, 들여쓰기는 하지 않는다.<br>
+				단, 중괄호{}가 중첩되는 경우, css3 브라우저별 분기시 사용가능
+			</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* 기본 사용 */
+					.class-first {display:block;overflow:hidden;float:left;position:relative;z-index:100;width:100%;height:100%;}
+					
+					/* 예외 */
+					.class-second {overflow:hidden;
+						-webkit-transition: all 0.3s ease;
+						-moz-transition: all 0.3s ease;
+						-ms-transition: all 0.3s ease;
+						-o-transition: all 0.3s ease;
+						transition: all 0.3s ease;
+					}
+					@media screen and (min-height:1024px) {
+						.class {display:block;overflow:hidden;float:left;}
+					}</pre>
+			</div>
+		</section>
+		<!-- //줄 바꿈 -->
+		<!-- 공백 -->
+		<section class="section-docs">
+			<h1 id="d-blank" class="tit-docs">공백</h1>
+			<ul class="list-dot">
+				<li>선택자 : 쉼표로 구분되는 부분은 한칸 공백을 넣는다.</li>
+				<li>선택자와 중괄호 : 선택자와 중괄호 사이는 한칸 공백을 넣고 중괄호 좌우 공백은 제거한다.</li>
+				<li>속성간 : 속성간 공백은 제거한다.</li>
+			</ul>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class-first, .class-second, class-third {display:block;overflow:hidden;}</pre>
+			</div>
+		</section>
+		<!-- //공백 -->
+		<!-- 빈줄 -->
+		<section class="section-docs">
+			<h1 id="blank-line" class="tit-docs">빈줄</h1>
+			<p class="txt-desc">의미있는 객체를 구분하기 위해 1줄씩 빈줄생성은 가능</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* header */
+					#header {position:relative;z-index:30;}
+					#header .inner {display:inline-block;}
+					
+					/* content */
+					#content {position:relative;z-index:20;}
+					#content .inner {display:inline-block;}
+					
+					/* footer */
+					#footer {position:relative;z-index:10;}</pre>
+			</div>
+		</section>
+		<!-- //빈줄 -->
+		<!-- 선택자 -->
+		<section class="section-docs">
+			<h1 id="selector" class="tit-docs">선택자</h1>
+			<h2 id="all-selector">공통선택자(*)</h2>
+			<p class="txt-desc">공통선택자는 페이지 성능을 떨어뜨리므로 사용하지 않는다.</p>
+			<h2 id="id-selector">id</h2>
+			<p class="txt-desc">
+				id 선택자는 레이아웃에만 사용한다.
+				<br>참고 : <a href="#/html-guide.php#layout-html5" title="새창" target="_blank">레이아웃</a>
+			</p>
+			<h2 id="class-selector">class</h2>
+			<p class="txt-desc">
+				최대한 뎁스는 줄이되 어느영역에서 사용하는지 가늠할 수 있게 작성<br>
+				다중선택자 <code>.class1.class2</code>는 지양한다.
+			</p>
+			<h2 id="imaginary-selector">가상선택자</h2>
+			<p class="txt-desc">
+				기본적으로 사용되는 <code>:hover</code>, <code>:active</code>, <code>:focus</code>, <code>:visited</code>는 사용가능<br>
+				이외는 ie8부터 가능한것 들이 많으므로 사용을 지양하지만 <code>:first-child</code>는 ie7이상 가능하다.<br>
+				참고 : <a href="http://www.w3schools.com/cssref/css_selectors.asp" target="_blank">w3schools css-selector</a>
+			</p>
+		</section>
+		<!-- //선택자 -->
+		<!-- 속성 -->
+		<section class="section-docs">
+			<h1 id="attribute" class="tit-docs">속성</h1>
+			<h2 id="priority-attribute">우선순위</h2>
+			<p class="txt-desc">
+				레이아웃 관련된 속성 우선 작성(<em>레이아웃 &gt; BOX &gt; 배경 &gt; 폰트 &gt; 기타</em>)<br>
+				css3로 브라우저별 분기처리 할 경우 줄바꿈하여 작성하므로 마지막부분에 정의
+			</p>
+			<div class="wrap-tbl">
+				<table class="tbl tbl-stripe">
+					<colgroup>
+						<col width="30%">
+						<col width="70%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>순서</th>
+							<th>속성</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>display</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>overflow</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>float</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>position</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>z-index</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>width &amp; height</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>margin &amp; padding</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>border</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>background</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>font</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>etc(기타)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h2 id="contract-bp">background-position 속성값</h2>
+			<p class="txt-desc"><del>top, right, bottom, left</del>은 사용하지 않고 숫자로 사용한다.</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class {background-position:0 0;}
+					.class {background-position:50% 50%;}
+					.class {background-position:-100px -200px;}</pre>
+			</div>
+			<h2 id="contract-attribute">축약</h2>
+			<p class="txt-desc">css최적화를 위해 속성값을 축약한다.</p>
+			<div class="wrap-tbl">
+				<table class="tbl">
+					<colgroup>
+						<col width="33.33%">
+						<col width="33.33%">
+						<col width="33.33%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축약 전</th>
+							<th>축약 후</th>
+							<th>설명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>#555555</td>
+							<td>#555</td>
+							<td>컬러 코드값 축약</td>
+						</tr>
+						<tr>
+							<td>margin:0px;</td>
+							<td>margin:0;</td>
+							<td>속성 값이 0일 경우 px, %는 표시하지 않는다.</td>
+						</tr>
+						<tr>
+							<td>margin:20px 20px 20px 20px;</td>
+							<td>margin:20px;</td>
+							<td rowspan="4">상, 우, 하, 좌의 속성 값이 동일할 경우 축약</td>
+						</tr>
+						<tr>
+							<td>margin:10px 20px 10px 20px;</td>
+							<td>margin:10px 20px;</td>
+						</tr>
+						<tr>
+							<td>margin:10px 20px 30px 20px;</td>
+							<td>margin:10px 20px 30px;</td>
+						</tr>
+						<tr>
+							<td>border-color:#ccc #ddd #ccc #ddd;</td>
+							<td>border-color:#ccc #ddd;</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h2 id="contract-sphere-attribute">약식 사용 범위</h2>
+			<p class="txt-desc">border와 background는 약식 속성을 우선적으로 사용하며, font약식 속성은 사용하지 않는다.</p>
+			<h3>border</h3>
+			<p class="txt-desc">
+				<code>border-width</code>, <code>border-style</code>, <code>border-color</code> 순으로 선언한다.<br>
+				border 초기 선언 시 약식으로 사용하고, 이 후 부분적인 속성이 변경 될 경우 관련 속성(<code>border-width</code>, <code>border-style</code>, <code>border-color</code>)을 선언한다.
+			</p>
+			<h3>background</h3>
+			<p class="txt-desc">
+				<code>background-color</code>, <code>background-image</code>, <code>background-repeat</code>, <code>background-position</code>, <code>background-size</code>, <code>background-attachment</code>, <code>background-origin</code>, <code>background-clip</code>  순으로 선언한다.<br>
+				background 약식 사용은 border와 동일하다.
+			</p>
+		</section>
+		<!-- //속성 -->
+		<!-- 한글 폰트 선언 -->
+		<section class="section-docs">
+			<h1 id="font-ko" class="tit-docs">한글 폰트 선언</h1>
+			<p class="txt-desc">영문 폰트만 선언 시 특정 브라우저에서 폰트를 올바르게 출력하지 못하는 경우가 있으므로 한글폰트 선언 시 한글, 영문 폰트를 모두 선언</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					font-family:"돋움"; (X)
+					font-family:"돋움",dotum; (O)</pre>
+			</div>
+		</section>
+		<!-- //한글 폰트 선언 -->
+		<!-- z-index -->
+		<section class="section-docs">
+			<h1 id="z-index" class="tit-docs">z-index</h1>
+			<p class="txt-desc">속성 값의 범위는 최소 10, 최고 1000이며, 10단위로 증감(10단위 사이의 변수가 생길 경우 1단위값 지정)</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* z-index 기본 가이드(선택적 사용 가능) */
+					#header {z-index:30;}
+					#container {z-index:20;}
+					#footer {z-index:10;}</pre>
+			</div>
+		</section>
+		<!-- //z-index -->
+		<!-- css 선언 타입 -->
+		<section class="section-docs">
+			<h1 id="css-type" class="tit-docs">css 선언 타입</h1>
+			<h2 id="external-type">External type</h2>
+			<p class="txt-desc">별도 css파일이 존재하고 link를 통해 연결</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					&lt;link rel="stylesheet" type="text/css" href="common.css"&gt;</pre>
+			</div>
+			<h2 id="internal-type">Internal type</h2>
+			<p class="txt-desc">html파일 head안에 스타일 선언</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;head&gt;
+						.class {display:block;}
+					&lt;/head&gt;
+					&lt;body&gt;
+						<div class="class">Internal type</div>
+					&lt;/body&gt;</pre>
+			</div>
+			<h2 id="inline-type">Inline type</h2>
+			<p class="txt-desc">개별요소에 style속성을 사용하여 스타일 선언</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<div style="display:block;">Inline type</div></pre>
+			</div>
+		</section>
+		<!-- //css 선언 타입 -->
+		<!-- 파일 분기 -->
+		<section class="section-docs">
+			<h1 id="file-divergence" class="tit-docs">파일 분기 (위메프기준, 협의)</h1>
+			<p class="txt-desc">부분부분 모듈화 시켜 css분기(부분적으로 수정되는 사항이 많이 때문에 최대한 클래스 추가가 아닌 기존 소스에서 수정하기 용이하게 하기 위함)</p>
+			<h2 id="file-module">module 파일</h2>
+			<div class="wrap-tbl">
+				<table class="tbl tbl-stripe">
+					<colgroup>
+						<col width="30%">
+						<col width="70%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>파일</th>
+							<th>설명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>common.css</td>
+							<td>전체 페이지 공통(reset, common style, common image, layout, footer, aside 등)</td>
+						</tr>
+						<tr>
+							<td>index.css</td>
+							<td>메인페이지</td>
+						</tr>
+						<tr>
+							<td>header.css</td>
+							<td>header는 수정사항이 많기 때문에 common에서 제외</td>
+						</tr>
+						<tr>
+							<td>d-list.css</td>
+							<td>딜 리스트</td>
+						</tr>
+						<tr>
+							<td>d-detail.css</td>
+							<td>딜 상세</td>
+						</tr>
+						<tr>
+							<td>user.css</td>
+							<td>회원가입, 로그인, 아이디찾기, 비번찾기, 비회원(주문조회), 회원정보수정, 수정전 비번확인 페이지</td>
+						</tr>
+						<tr>
+							<td>mypage.css</td>
+							<td>마이페이지</td>
+						</tr>
+						<tr>
+							<td>customer</td>
+							<td>고객센터</td>
+						</tr>
+						<tr>
+							<td>popup</td>
+							<td>팝업</td>
+						</tr>
+						<tr>
+							<td>order</td>
+							<td>장바구니, 주문/결제, 주문완료</td>
+						</tr>
+						<tr>
+							<td>promotion</td>
+							<td>기획전</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<!-- //파일 분기 -->
+		<!-- 기타 참고 사항 -->
+		<section class="section-docs">
+			<h1 id="order-information" class="tit-docs">기타 참고 사항</h1>
+			<h2 id="information-clearfix">clearfix</h2>
+			<p class="txt-desc">float을 해제 하지 않을 경우 아래 나오는 영역에 영향을 주기때문에 해제를 시켜줘야한다.</p>
+			<h3>*zoom + :after (권장)</h3>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class {*zoom:1;} /* ie7 */
+					.class:after {display:block;clear:both;content:"";}</pre>
+			</div>
+			<h3>overflow</h3>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class {overflow:hidden;}</pre>
+			</div>
+			<h3>inline-block</h3>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class {display:inline-block;}</pre>
+			</div>
+			<h3>clear:both</h3>
+			<div class="source-code">
+				<pre class="brush:css">
+					.class {clear:both;}</pre>
+			</div>
+			<h2 id="information-media">media쿼리</h2>
+			<ul class="list-dot">
+				<li>반응형 관련 쿼리는 하위에 위치</li>
+				<li>mobile에서 이미지 사이즈 관련 쿼리는 이미지스타일 바로 하단 위치(사이즈 수정시 용이)</li>
+				<li>print관련 쿼리는 최하위 위치</li>
+			</ul>
+			<h3>width / height</h3>
+			<p class="txt-desc">뷰포트의 너비와 높이</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* 뷰포트 너비가 768px 이상, 1024px 이하 */
+					@media screen and (min-width:768px) and (max-width:1024px) {...}
+					
+					/* 뷰포트 너비가 768px 이상, 1024px 이하가 아닐 때 실행 */
+					@media not screen and (min-width:768px) and (max-width:1024px) {...}</pre>
+			</div>
+			<h3>device-pixel-ratio</h3>
+			<p class="txt-desc">픽셀 밀도</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* 해상도 밀도가 1배율 */
+					@media screen and (-webkit-min-device-pixel-ratio:1) {...}
+
+					/* 해상도 밀도가 1.5배율 */
+					@media screen and (-webkit-min-device-pixel-ratio:1.5) {...}</pre>
+			</div>
+			<h3>device-width / device-height</h3>
+			<p class="txt-desc">스크린의 너비와 높이</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* 스크린 너비가 320px, 높이가 480px */
+					@media screen and (device-width:320px) and (device-height:480px) {...}
+
+					/* 너비가 320px 이상, 높이가 480px 이상 */
+					@media screen and (min-device-width:320px) and (min-device-height:480px) {...}</pre>
+			</div>
+			<h3>orientation</h3>
+			<p class="txt-desc">뷰포트의 너비와 높이 비율을 이용하여 세로모드인지 가로모드인지 판단</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/* 세로모드 */
+					@media screen and (orientation:portrait) {...}
+
+					/* 가로모드 */
+					@media screen and (orientation:landscape) {...}</pre>
+			</div>
+			<h2 id="information-bg-size">mobile background-size</h2>
+			<p class="txt-desc">레티나의 경우 x2, 안드로이드 계역은 x1.5 비율이 생겨 x1 사이즈로 작업했을 경우 흐릿해보이기 때문에 @media query로 분기 처리</p>
+			<div class="source-code">
+				<pre class="brush:css">
+					/*
+						단말기 해상도 밀도가 1.5배율인 디바이스
+						ico@x1.png의 가로 사이즈 100px
+						ico@x2.png의 가로 사이즈 200px 일 경우
+					*/
+					.ico-comm {background:url(ico@x1.png) no-repeat;}
+					@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+						.ico-comm {background-image:url(ico@x2.png);background-size:100px auto;}
+					}</pre>
+			</div>
+		</section>
+		<!-- //기타 참고 사항 -->
+	</article>
+	
+	<div ng-include=" 'convention/views/common/snb.html' "></div>
+	
+</div>
+

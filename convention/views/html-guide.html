@@ -1,0 +1,531 @@
+<div id="cHeader" class="c-header bg-c-header">
+	<div class="c-header-inner">
+		<h2 class="tit">HTML Guide</h2>
+		<p class="txt">HTML(Hyper Text Markup Language)코드의 기본 작성 가이드입니다.</p>
+	</div>
+</div>
+<div id="container">
+	<article id="content" role="main">
+
+		<div ng-include src=" 'convention/views/common/page-zoom.html' "></div>
+		<!-- 기본규칙 -->
+		<section class="section-docs">
+			<h1 id="html-d-rule" class="tit-docs">기본 규칙</h1>
+			<h2 id="rule-small-letter">영문 소문자 사용</h2>
+			<p class="txt-desc">DTD를 제외한 모든 요소와 Attribute는 소문자로 작성</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<div class="desc">내용</div></pre>
+			</div>
+			<h2 id="rule-quotation-marks">따옴표</h2>
+			<p class="txt-desc">Attribute값은 쌍따옴표 사용 ("")</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<div id="idName" class="class-name">내용</div></pre>
+			</div>
+			<h2 id="rule-symbol">특수기호</h2>
+			<p class="txt-desc">특수기호는 entity code로 변환하여 사용</p>
+			<div class="wrap-tbl">
+				<table class="tbl tbl-stripe">
+					<colgroup>
+						<col width="33.33%">
+						<col width="33.33%">
+						<col width="33.33%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>문자</th>
+							<th>엔티티코드</th>
+							<th>설명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>space</td>
+							<td>&amp;nbsp;</td>
+							<td>공백</td>
+						</tr>
+						<tr>
+							<td>&amp;</td>
+							<td>&amp;amp;</td>
+							<td>앤드</td>
+						</tr>
+						<tr>
+							<td>&quot;</td>
+							<td>&amp;quot;</td>
+							<td>인용마크</td>
+						</tr>
+						<tr>
+							<td>&ldquo;</td>
+							<td>&amp;ldquo;</td>
+							<td>겹따옴표 시작</td>
+						</tr>
+						<tr>
+							<td>&rdquo;</td>
+							<td>&amp;rdquo;</td>
+							<td>겹따옴표 끝</td>
+						</tr>
+						<tr>
+							<td>&lsquo;</td>
+							<td>&amp;lsquo;</td>
+							<td>홀따옴표 시작</td>
+						</tr>
+						<tr>
+							<td>&rsquo;</td>
+							<td>&amp;rsquo;</td>
+							<td>홀따옴표 끝</td>
+						</tr>
+						<tr>
+							<td>&middot;</td>
+							<td>&amp;middot;</td>
+							<td>중간점</td>
+						</tr>
+						<tr>
+							<td>&lt;</td>
+							<td>&amp;lt;</td>
+							<td>보다 작은</td>
+						</tr>
+						<tr>
+							<td>&gt;</td>
+							<td>&amp;gt;</td>
+							<td>보다 큰</td>
+						</tr>
+						<tr>
+							<td>&#x20a9;</td>
+							<td>&amp;#x20a9;</td>
+							<td>원화</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<!-- //기본규칙 -->
+		<!-- DOCTYPE -->
+		<section class="section-docs">
+			<h1 id="doctype" class="tit-docs">DOCTYPE</h1>
+			<h2 id="doctype-xhtml">xhtml 1.0</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</pre>
+			</div>
+			<h2 id="doctype-html">html4.01</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</pre>
+			</div>
+			<h2 id="doctype-html5">html5</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;!DOCTYPE html&gt;</pre>
+			</div>
+		</section>
+		<!-- //DOCTYPE -->
+		<!-- haed element -->
+		<section class="section-docs">
+			<h1 id="head-element" class="tit-docs">head element</h1>
+			<h2 id="head-meta">meta</h2>
+			<h3>인코딩</h3>
+			<p class="txt-desc">기본 인코딩은 <code>utf-8</code>을 원칙으로 한다.</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<meta charset="utf-8"></pre>
+			</div>
+			<h3>viewport</h3>
+			<p class="txt-desc"><em>mobile 모바일</em> 작업시 <code>viewport</code> 설정</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"></pre>
+			</div>
+			<h2 id="head-title">title</h2>
+			<p class="txt-desc">문서의 타이틀 설정</p>
+			<h2 id="head-link">link</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					<link rel="stylesheet" type="text/css" href="convention/css/common.css"></pre>
+			</div>
+		</section>
+		<!-- //haed element -->
+		<!-- 기본레이아웃 -->
+		<section class="section-docs">
+			<h1 id="d-layout" class="tit-docs">기본레이아웃</h1>
+			<p class="txt-desc">기본적으로 사용되는 레이아웃으로 디자인에 따라 변경 가능하다.</p>
+			<h2 id="layout-before">html4.01 / xhtml1.0</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+					&lt;html lang="ko"&gt;
+					&lt;head&gt;
+					&lt;meta charset="utf-8"&gt;
+					&lt;title&gt;title&lt;/title&gt;
+					&lt;link rel="stylesheet" type="text/css" href="common.css"&gt;
+					&lt;/head&gt;
+					&lt;body&gt;
+					
+					<div id="wrap">
+						<!-- skipNav -->
+						<div id="skipNav">
+							<a href="#lnb">메뉴영역 바로가기</a>
+							<a href="#content">내용영역 바로가기</a>
+						</div>
+						<!-- //skipNav -->
+						<!-- header -->
+						&lt;div id="header"&gt;
+							<h1>logo</h1>
+							&lt;div id="lnb"&gt;#lnb&lt;/div&gt;
+						&lt;/div&gt;
+						<!-- //header -->
+						<!-- container -->
+						&lt;div id="container"&gt;
+							<!-- snb -->
+							&lt;div id="snb"&gt;#snb&lt;/div&gt;
+							<!-- //snb -->
+							<!-- content -->
+							&lt;div id="content"&gt;#content&lt;/div&gt;
+							<!-- //content -->
+							<!-- aside -->
+							&lt;div id="aside"&gt;#aside&lt;/div&gt;
+							<!-- //aside -->
+						&lt;/div&gt;
+						<!-- //container -->
+						<!-- footer -->
+						&lt;div id="footer"&gt;#footer&lt;/div&gt;
+						<!-- //footer -->
+					</div>
+					&lt;script type="text/javascript" src="default.js"&gt;&lt;/script&gt;
+					
+					&lt;/body&gt;
+					&lt;/html&gt;</pre>
+			</div>
+			<h2 id="layout-html5">html5</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;!DOCTYPE html&gt;
+					&lt;html lang="ko"&gt;
+					&lt;head&gt;
+					&lt;meta charset="utf-8"&gt;
+					&lt;title&gt;title&lt;/title&gt;
+					&lt;link rel="stylesheet" type="text/css" href="common.css"&gt;
+					&lt;/head&gt;
+					&lt;body&gt;
+					
+					<div id="wrap">
+						<!-- skipNav -->
+						<div id="skipNav">
+							<a href="#lnb">메뉴영역 바로가기</a>
+							<a href="#content">내용영역 바로가기</a>
+						</div>
+						<!-- //skipNav -->
+						<!-- header -->
+						&lt;header id="header" role="banner"&gt;
+							<h1>logo</h1>
+							&lt;nav id="lnb" role="navigation"&gt;#lnb&lt;/nav&gt;
+						&lt;/header&gt;
+						<!-- //header -->
+						<!-- container -->
+						&lt;div id="container"&gt;
+							<!-- snb -->
+							&lt;nav id="snb"&gt;#snb&lt;/nav&gt;
+							<!-- //snb -->
+							<!-- content -->
+							&lt;article id="content" role="main"&gt;#content&lt;/article&gt;
+							<!-- //content -->
+							<!-- aside -->
+							&lt;aside id="aside"&gt;#aside&lt;/aside&gt;
+							<!-- //aside -->
+						&lt;/div&gt;
+						<!-- //container -->
+						<!-- footer -->
+						&lt;footer id="footer" role="contentinfo"&gt;#footer&lt;/footer&gt;
+						<!-- //footer -->
+					</div>
+					&lt;script type="text/javascript" src="default.js"&gt;&lt;/script&gt;
+					
+					&lt;/body&gt;
+					&lt;/html&gt;</pre>
+			</div>
+		</section>
+		<!-- //기본레이아웃 -->
+		<!-- 주석표기 -->
+		<section class="section-docs">
+			<h1 id="annotation" class="tit-docs">주석표기</h1>
+			<h2 id="annotation-default">기본 규칙</h2>
+			<ul class="list-dot">
+				<li>주석 기호와 주석 내용 사이에는 반드시 공백 한 칸이 있어야 한다.</li>
+				<li>시작과 종료 주석의 주석 내용은 동일해야 한다.</li>
+			</ul>
+			<div class="source-code">
+				<pre class="brush:html">
+					<!-- 내용 --> 시작 주석
+					<!-- //내용 --> 종료 주석</pre>
+			</div>
+			<h2 id="annotation-content">레이아웃 및 콘텐츠 영역</h2>
+			<p class="txt-desc">
+				<a href="#d-layout">기본 레이아웃&uarr;</a>에서 작성된것처럼 <code>#wrap</code>을 제외한 모든 레이아웃에 시작과 종료 주석을 작성한다.<br>
+				독립된 영역의 주석은 선택사항.
+			</p>
+		</section>
+		<!-- //주석표기 -->
+		<!-- 들여쓰기 -->
+		<section class="section-docs">
+			<h1 id="make-indent" class="tit-docs">들여쓰기</h1>
+			<p class="txt-desc">
+				HTML의 구조를 쉽게 파악하기 위해 들여쓰기 규칙을 준수한다.<br>
+				1탭의 크기는 공백 4칸으로 설정하고 들여쓰기시 space로 들여쓰지 않는다.<br>
+			</p>
+			<div class="txt-desc">
+				<ul class="list-dot">
+					<li>
+						예외사항
+						<ul class="list-dot">
+							<li>
+								<code>&lt;html&gt;</code>의 자식인 <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>
+							</li>
+							<li>
+								<code>&lt;head&gt;</code>의 자식요소
+							</li>
+							<li>
+								<code>&lt;body&gt;</code>의 first-child(<code>#wrap</code>)
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!-- //들여쓰기 -->
+		<!-- 빈 줄 -->
+		<section class="section-docs">
+			<h1 id="blank-line" class="tit-docs">빈 줄</h1>
+			<p class="txt-desc">의미있는 객체를 구분하기 위해 1줄씩 빈 줄은 허용한다.</p>
+		</section>
+		<!-- //빈 줄 -->
+		<!-- table -->
+		<section class="section-docs">
+			<h1 id="table-element" class="tit-docs">table</h1>
+			<div class="source-code">
+				<pre class="brush:html">
+					<table>
+						<caption>table title</caption>
+						<colgroup>
+							<col width="50%">
+							<col width="50%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">table-title-01</th>
+								<th scope="col">table-title-02</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<td scope="col">table-result-01</td>
+								<td scope="col">table-result-02</td>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td scope="col">table-content-01</td>
+								<td scope="col">table-content-02</td>
+							</tr>
+						</tbody>
+					</table>
+				</pre>
+			</div>
+			<h2 id="table-caption">caption</h2>
+			<ul class="list-dot">
+				<li>table 전체에 대한 제목</li>
+				<li>html5에서는 summary까지 포함한 내용 표기</li>
+			</ul>
+			<h2 id="table-summary">summary</h2>
+			<ul class="list-dot">
+				<li>table의 부가 설명 표기</li>
+				<li>html5에서는 폐기</li>
+			</ul>
+			<h2 id="table-colgroup">colgroup</h2>
+			<p class="txt-desc">
+				<code>col width</code>나 <code>col class</code>만 사용 권장<br>
+			</p>
+			<h2 id="table-scope">scope</h2>
+			<ul class="list-dot">
+				<li>읽어야 하는 방향을 지정</li>
+				<li><code>scope="col"</code>은 세로(column)로 읽어라</li>
+				<li><code>scope="row"</code>는 가로(row)로 읽어라</li>
+			</ul>
+			<h2 id="table-sequence">thead, tfoot, tbody</h2>
+			<p class="txt-desc">마크업의 흐름상 <code>&lt;thead&gt;</code> <code>&lt;tfoot&gt;</code> <code>&lt;tbody&gt;</code>순으로 작성</p>
+		</section>
+		<!-- //table -->
+		<!-- form -->
+		<section class="section-docs">
+			<h1 id="form-element" class="tit-docs">form</h1>
+			<h2 id="form-default">기본 규칙</h2>
+			<ul class="list-dot">
+				<li><code>&lt;form&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>를 함께 선언</li>
+				<li>텍스트필드나, 셀렉트박스의 스타일이 동일하나 너비값이 다를경우 style Attribute를 사용하여 너비값 조정</li>
+			</ul>
+			<div class="source-code">
+				<pre class="brush:html">
+					<form>
+						<fieldset>
+							<legend>legend</legend>
+						</fieldset>
+					</form></pre>
+			</div>
+			<h2 id="form-label">label</h2>
+			<ul class="list-dot">
+				<li>label은 input이나 select, textarea와 같은 폼요소를 그루핑시켜주는 역할</li>
+				<li>label과 형제로 input이 있을 경우 for와 id값 동일하게 선언</li>
+				<li>label의 자식으로 input이 있을 경우 for와 id를 연결하지 않아도 된다.</li>
+			</ul>
+			<div class="source-code">
+				<pre class="brush:html">
+					<label>
+						<input type="checkbox">
+						checkbox
+					</label>
+					
+					<input type="radio" id="sameName1" name="sameName" checked="checked">
+					<label for="sameName1">checkbox1</label></pre>
+			</div>
+			<h2 id="form-input">input</h2>
+			<p class="txt-desc">
+				<code>&lt;label&gt;</code>, <code>title</code>, <code>alt</code> Attribute를 통해 스크린리더 사용자는 주변 맥락에 대한 이해 없이 각 요소에 독립적으로 접근해도 폼을 이해할 수 있다.
+			</p>
+			<ul class="list-dot">
+				<li>
+					type="radio, checkbox"
+					<ul>
+						<li>name Attribute를 사용하여 그루핑</li>
+						<li>기본 선택이 필요할 경우 <code>checked="checked"</code></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="bs-example">
+				<label for="typeText">type="text"</label>
+				<input type="text" id="typeText"><br>
+				<label for="typePass">type="password"</label>
+				<input type="password" id="typePass"><br>
+				<label>
+					<input type="radio">
+					type="radio"
+				</label><br>
+				<label>
+					<input type="checkbox">
+					type="checkbox"
+				</label>
+			</div>
+			<div class="source-code">
+				<pre class="brush:html">
+					<input type="text">
+					<input type="password">
+					<input type="radio">
+					<input type="checkbox"></pre>
+			</div>
+			<h2 id="form-textarea">textarea</h2>
+			<p class="txt-desc">css를 정상적으로 불러오지 못하는 상황에서도 사용에 문제가 없도록 cols, rows Attribute를 각각 30,5 이상으로 선언한다.</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<textarea cols="30" rows="5"></textarea></pre>
+			</div>
+			<h2 id="form-button">button</h2>
+			<p class="txt-desc">button, submit type을 선언.</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<button type="button">버튼</button>
+					<button type="submit">전송</button></pre>
+			</div>
+		</section>
+		<!-- //form -->
+		<!-- img -->
+		<section class="section-docs">
+			<h1 id="img-element" class="tit-docs">img</h1>
+			<h2 id="img-default">기본 규칙</h2>
+			<ul class="list-dot">
+				<li>src, width, height, title, alt, usemap 순으로 선택적 사용</li>
+				<li>고정사이즈일 경우 width, height 값 입력</li>
+				<li>title을 선언해도 alt 값을 함께 선언</li>
+			</ul>
+			<h2 id="img-map">map</h2>
+			<div class="source-code">
+				<pre class="brush:html">
+					&lt;img src="url" width="100" height="100" title="title" alt="alt" usemap="#usemap"&gt;
+					<map name="usemap">
+						<area shape="맵모양" coords="맵좌표" href="url" alt="alt">
+					</map></pre>
+			</div>
+		</section>
+		<!-- //img -->
+		<!-- 기타 참고 사항 -->
+		<section class="section-docs">
+			<h1 id="order-information" class="tit-docs">기타 참고 사항</h1>
+			<h2 id="information-role">랜드마크</h2>
+			<p class="txt-desc">
+				ARIA는 특정 요소가 담당하는 역할을 기준으로 role속성에 지정할 수 있는 몇가지 속성값을 정의한다. 이를 기술적 용어로 온톨로지(ontology)를 부여한다고 표현한다.<br>
+				html5에서는 role속성 적용. 이외 문서타입에서는 validation오류 발생<br>
+			</p>
+			<div class="wrap-tbl">
+				<table class="tbl tbl-stripe">
+					<colgroup>
+						<col width="50%">
+						<col width="50%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>속성</th>
+							<th>설명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>banner</td>
+							<td>특정 문서가 아닌 전체 사이트 영역을 지정. 예를 들어 사이트의 헤더나 로고</td>
+						</tr>
+						<tr>
+							<td>application</td>
+							<td>웹 애플리케이션에 사용되는 영역을 지정</td>
+						</tr>
+						<tr>
+							<td>complementary</td>
+							<td>페이지의 메인 섹션을 보완하는 영역을 지정</td>
+						</tr>
+						<tr>
+							<td>contentinfo</td>
+							<td>메인 콘텐츠의 정보를 지정. 예를 들어 페이지의 하단의 저작권 정보 표시</td>
+						</tr>
+						<tr>
+							<td>form</td>
+							<td>웹 폼을 지정. 검색 엔진일 경우에는 대신 search를 사용</td>
+						</tr>
+						<tr>
+							<td>main</td>
+							<td>페이지의 메인 콘텐츠를 지정</td>
+						</tr>
+						<tr>
+							<td>navigation</td>
+							<td>현재 문서나 관련된 문서의 내비게이션 링크를 지정</td>
+						</tr>
+						<tr>
+							<td>search</td>
+							<td>검색을 수행하는 영역을 정의</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="txt-desc">
+				<a href="" ng-click="moveTo('layout-html5')">참고 : 레이아웃&uarr;</a>
+			</p>
+			<h2 id="information-a-tag">html5 a태그</h2>
+			<p class="txt-desc">html5에서는 a태그 안에 블록속성의 요소를 포함할 수 있음</p>
+			<div class="source-code">
+				<pre class="brush:html">
+					<a href="#">
+						<div>image</div>
+						<div>title</div>
+					</a></pre>
+			</div>
+		</section>
+		<!-- //기타 참고 사항 -->
+	</article>
+
+	<div ng-include=" 'convention/views/common/snb.html' "></div>
+
+</div>

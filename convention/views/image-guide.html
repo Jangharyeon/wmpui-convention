@@ -1,0 +1,48 @@
+<div id="cHeader" class="c-header bg-c-header">
+	<div class="c-header-inner">
+		<h2 class="tit">IMAGE Guide</h2>
+		<p class="txt">이미지 공통네이밍, sprite, 확장자에 대한 가이드입니다.</p>
+	</div>
+</div>
+<div id="container">
+	<article id="content" role="main">
+		
+		<div ng-include src=" 'convention/views/common/page-zoom.html' "></div>
+
+		<!-- 이미지 스프라이트 -->
+		<section class="section-docs">
+			<h1 id="img-sprite" class="tit-docs">이미지 스프라이트</h1>
+			<ul class="list-dot">
+				<li>스프라이트는 수직정렬형과 바둑판형 중 서비스에 따라 선택하여 사용</li>
+				<li>각 스프라이트 집합은 타이틀, 버튼, 아이콘, 메뉴(GNB 또는 Tab), 숫자 등 용도별로 나누어 그룹핑</li>
+			</ul>
+			<h2 id="sprite-tite">타이틀 이미지</h2>
+			<p class="txt-desc">기본간격은 50px이나, 높이가 크지 않으면 25px 단위로 줄일 수 있다.</p>
+			<div class="border-box text-center">
+				<img src="convention/images/guide-tit.png" alt="타이틀 이미지 가이드">
+			</div>
+			<h2 id="sprite-btn">버튼 이미지</h2>
+			<p class="txt-desc">기본간격은 10px 단위로 한다.</p>
+			<div class="border-box text-center">
+				<img src="convention/images/guide-btn.png" alt="버튼 이미지 가이드">
+			</div>
+			<h2 id="sprite-ico">아이콘 이미지</h2>
+			<p class="txt-desc">
+				좌측에 배치되는 아이콘은 가장 좌측에, 우측으로 배치되는 아이콘은 가장 우측으로 배치한다.<br>
+				기본 간격은 25px 단위로 한다.
+			</p>
+			<div class="border-box text-center">
+				<img src="convention/images/guide-ico.png" alt="아이콘 이미지 가이드">
+			</div>
+			<h2 id="sprite-gnb">GNB와 Tab 이미지</h2>
+			<p class="txt-desc">Off되어있는 이미지가 On 된 상태 바로 위에 있도록 한다.</p>
+			<div class="border-box text-center">
+				<img src="convention/images/guide-gnb.png" alt="gnb, tab 이미지 가이드">
+			</div>
+		</section>
+		<!-- //이미지 스프라이트 -->
+	</article>
+	
+	<div ng-include=" 'convention/views/common/snb.html' "></div>
+	
+</div>

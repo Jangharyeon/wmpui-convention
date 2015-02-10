@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app='wmp' ng-controller='AppCtrl'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>위메프 Coding Convention</title>
+	<link rel="shortcut icon" href="http://wmpui.dothome.co.kr/favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width:769px)" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+	<link rel="stylesheet" type="text/css" href="convention/css/common.css">
+	<link rel="stylesheet" type="text/css" href="convention/css/lib/shCore.css">
+	<link rel="stylesheet" type="text/css" href="convention/css/lib/shThemeRDark.css">
+</head>
+<body>
+	<div id="skipNav">
+		<a href="#lnb">메뉴영역 바로가기</a>
+		<a href="#content">내용영역 바로가기</a>
+	</div>
+	<div id="wrap">
+		<div class="t-bar">
+			<div class="inner">
+				<a href="#/coding-guide" class="btn-write">Coding Guide</a>
+			</div>
+		</div>
+		<header id="header" role="banner">
+			<div class="navbar-header">
+				<h1 class="logo">
+					<a href="#/html-guide" class="link-logo">
+						<img src="convention/images/logo.png" width="70" height="25" alt="위메프">
+					</a>
+				</h1>
+				<button type="button" class="btn-fold">
+					<i class="ico-bar"></i>
+					메뉴
+				</button>
+				<a href="#/coding-guide" class="btn-write">
+					<span class="ico-comm">Coding Guide<span>
+				</a>
+			</div>
+			<nav id="lnb" class="nav-lnb" role="navigation">
+				<ul class="list-lnb">
+					<li>
+						<a href="#/html-guide" class="link-lnb">
+							HTML Guide
+							<i class="ico-comm ico-arr"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#/css-guide" class="link-lnb">
+							CSS Guide
+							<i class="ico-comm ico-arr"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#/naming-guide" class="link-lnb">
+							Naming Guide
+							<i class="ico-comm ico-arr"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#/image-guide" class="link-lnb">
+							Image Guide
+							<i class="ico-comm ico-arr"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#/reference" class="link-lnb">
+							참고 사항
+							<i class="ico-comm ico-arr"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<div ng-view></div>
+
+		<footer id="footer" role="contentinfo">
+			<a href="" ng-click="moveTop()" class="btn-comm btn-top">top</a>
+			<p class="copyright">Copyright (c) WEMAKEPRICE. INC. All rights reserved.</p>
+		</footer>
+	</div>
+	
+	<script type="text/javascript" src="convention/js/lib/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="convention/js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="convention/js/lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="convention/js/lib/shCore.js"></script>
+	<script type="text/javascript" src="convention/js/lib/shBrushCss.js"></script>
+	<script type="text/javascript" src="convention/js/lib/shBrushJScript.js"></script>
+	<script type="text/javascript" src="convention/js/lib/shBrushXml.js"></script>
+	<script type="text/javascript" src="convention/js/default.js"></script>
+
+</body>
+</html>
