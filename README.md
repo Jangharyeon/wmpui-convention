@@ -1,1 +1,1 @@
-http://wgit.wemakeprice.com/pages/HaryunJang/wmpui/
+http://jangharyun.github.io/wmpui/#/coding-guide
